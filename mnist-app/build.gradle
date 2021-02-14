@@ -1,0 +1,27 @@
+plugins {
+    id 'dev.jamesleach.app'
+}
+
+project.version = 'v1.0'
+
+dependencies {
+    implementation project(':app')
+    implementation project(':neural')
+    implementation project(':neural-s3-storage')
+
+    testImplementation testFixtures(project(':app'))
+    testImplementation testFixtures(project(':neural'))
+}
+
+bootJar {
+    // Remove version number from bootJar
+    archiveFileName = "${archiveBaseName.get()}.${archiveExtension.get()}"
+}
+
+docker {
+    name "mnist-app:${project.version}"
+    tag "ecrTag", "953430798342.dkr.ecr.eu-west-2.amazonaws.com/deployed-ml:${project.version}"
+    tag "ecrLatestTag", "953430798342.dkr.ecr.eu-west-2.amazonaws.com/deployed-ml:latest"
+    dockerfile project.file('Dockerfile')
+    files tasks.bootJar.outputs
+}

@@ -1,0 +1,5 @@
+plugins {
+    id 'dev.jamesleach.java'
+    id 'java-library'
+    id 'java-test-fixtures'
+}

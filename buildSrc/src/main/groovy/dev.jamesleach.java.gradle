@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'io.freefair.lombok'
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+java {
+    sourceCompatibility = 'VERSION_11'
+}
+
+ext {
+    springVersion = '5.2.9.RELEASE'
+    springBootVersion = '2.3.3.RELEASE'
+}
+
+test {
+    testLogging {
+        events "PASSED", "SKIPPED", "FAILED", "STANDARD_OUT", "STANDARD_ERROR"
+    }
+    useJUnitPlatform()
+}

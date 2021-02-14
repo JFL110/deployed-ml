@@ -1,0 +1,10 @@
+plugins {
+    id 'dev.jamesleach.lib'
+}
+
+dependencies {
+    api project(':neural')
+    api('com.amazonaws:aws-java-sdk-s3:1.11.953')
+
+    testFixturesApi testFixtures(project(':neural'))
+}

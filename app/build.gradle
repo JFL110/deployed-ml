@@ -1,0 +1,12 @@
+plugins {
+    id 'dev.jamesleach.lib'
+}
+
+dependencies {
+    api project(':foundation')
+    api "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    api 'org.springdoc:springdoc-openapi-ui:1.5.0'
+
+    testFixturesApi "org.springframework.boot:spring-boot-starter-webflux:$springBootVersion"
+    testFixturesApi testFixtures(project(':foundation'))
+}
