@@ -1,0 +1,6 @@
+rootProject.name = 'deployed-ml'
+include 'foundation',
+        'neural',
+        'neural-s3-storage',
+        'app',
+        'mnist-app'
