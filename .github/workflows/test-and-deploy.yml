@@ -28,4 +28,5 @@ jobs:
     - name: Test
       run: ./gradlew test
     - name: Push to ECR
+      if: github.ref == 'refs/heads/master'
       run: ./gradlew dockerPushEcrLatestTag 
