@@ -29,4 +29,4 @@ jobs:
     - name: Test
       run: ./gradlew test
     - name: Push to ECR
-      run: ./gradlew dockerPushEcrLatestTag
+      run: ./gradlew  --stacktrace dockerPushEcrLatestTag
