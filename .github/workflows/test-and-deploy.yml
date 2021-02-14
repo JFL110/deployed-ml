@@ -21,7 +21,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-2
+        aws-region: eu-west-2
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
@@ -30,6 +30,4 @@ jobs:
     - name: Test
       run: ./gradlew test
     - name: Docker Build & Tag
-      run: ./gradlew  --stacktrace --info dockerTagEcrLatestTag
-    - name: Docker Push
-      run: docker push 953430798342.dkr.ecr.eu-west-2.amazonaws.com/deployed-ml:latest
+      run: ./gradlew  --stacktrace --info dockerPushEcrLatestTag
