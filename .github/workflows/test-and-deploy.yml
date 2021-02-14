@@ -1,11 +1,12 @@
 name: Test & Deploy
 
-on: [push]
-
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -28,5 +29,4 @@ jobs:
     - name: Test
       run: ./gradlew test
     - name: Push to ECR
-      if: github.ref == 'refs/heads/master'
-      run: ./gradlew dockerPushEcrLatestTag 
+      run: ./gradlew dockerPushEcrLatestTag
