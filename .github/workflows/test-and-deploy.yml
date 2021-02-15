@@ -30,4 +30,8 @@ jobs:
     - name: Test
       run: ./gradlew test
     - name: Docker Build & Tag
+      run: ./gradlew  --stacktrace --info dockerPushEcrTag
+    - name: Docker Build & Tag
       run: ./gradlew  --stacktrace --info dockerPushEcrLatestTag
+    - name: ECS update service
+      run: aws ecs update-service --cluster demo-projects --service deployed-ml --force-new-deployment
