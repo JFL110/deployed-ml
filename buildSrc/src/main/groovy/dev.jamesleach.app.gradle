@@ -27,7 +27,6 @@ bootJar {
          "-android-",
          "-linux-armhf",
          "-linux-ppc64le",
-         "nd4j-native-1.0.0-beta7-linux-x86_64",
          "nd4j-native-1.0.0-beta7-linux-ppc64le",
         ].stream()
                 .any { n -> it.file.name.contains(n) }
